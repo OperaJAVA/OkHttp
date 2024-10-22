@@ -134,7 +134,8 @@ class PostRepositoryImpl : PostRepository {
                     callback.onError(IOException("Unexpected code $response"))
                     return
                 }
-                callback.onSuccess(Unit) // Успех без дополнительной информации
+                // Отправляем сигнал об успешном удалении
+                callback.onSuccess(Unit) 
             }
 
             override fun onFailure(call: Call, e: IOException) {
