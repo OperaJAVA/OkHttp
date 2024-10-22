@@ -9,10 +9,10 @@ interface PostRepository {
     fun likeByIdAsync(id: Long, callback: Callback<Post>)
     fun unlikeByIdAsync(id: Long, callback: Callback<Post>)
     fun saveAsync(post: Post, callback: Callback<Post>)
-    fun removeByIdAsync(id: Long, callback: Callback<Post>)
+    fun removeByIdAsync(id: Long, callback: Callback<Unit>) // Изменила на Unit для удаления
 
     interface Callback<T> {
-        fun onSuccess(posts: T)
+        fun onSuccess(result: T)
         fun onError(e: Exception)
     }
 }
